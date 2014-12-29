@@ -432,6 +432,8 @@ declare module "mongoose" {
     constructor(fn?: (err: any, result: T) => void);
 
     then<U>(onFulFill: (result: T) => void, onReject?: (err: any) => void): Promise<U>;
+    then<U>(onFulFill: (result: T) => U, onReject?: (err: any) => U): Promise<U>;
+    then<U>(onFulFill: (result: T) => Promise<U>, onReject?: (err: any) => Promise<U>): Promise<U>;
     end(): void;
 
     fulfill(result: T): Promise<T>;
